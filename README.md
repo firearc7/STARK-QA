@@ -40,11 +40,19 @@ Users can find stories similar to a given story by providing the story ID.
 
 ### Requirements
 - Python 3.7+
-- Libraries: `torch`, `transformers`, `sentence-transformers`, `faiss-cpu`, `nltk`, `pandas`, `scikit-learn`
+- Libraries: `torch`, `transformers`, `sentence-transformers`, `faiss-cpu`, `nltk`, `pandas`, `scikit-learn`, `typing`, `dataclasses`
 
-### Installation
-1. Clone the repository.
-2. Install the required libraries using `pip install -r requirements.txt`.
+### Running
+
+Execute the following command after ensuring the required libraries are download: 
+`python3 rag.py`
+
+If issues are encountered during running, please upload the file on Google Colab and execute it via the following command:
+
+```
+!pip install faiss-cpu
+!python rag.py
+```
 
 ## Future Plans
 
