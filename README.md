@@ -124,15 +124,50 @@ stories = {
 combined_df, combined_G = kg_generator.process_multiple_stories(stories)
 ```
 
-## Future Plans
+## 3. KAG 
 
-### a. Knowledge-Augmented Generation (KAG)
-After the mid-evaluation, we plan to extend the project by implementing a Knowledge-Augmented Generation (KAG) system. This system will leverage knowledge graph embeddings to answer questions based solely on structured data extracted from short stories. By utilizing the structured representation of the stories, the KAG system aims to provide precise and contextually relevant answers.
+# Short Story Knowledge Processing System
 
-This part of the project will be done by 15th April, 2025. 
+This system is specifically designed for processing and analyzing short stories (under 2,500 words) using knowledge graphs and retrieval augmented generation. The implementation consists of three main components that work together to understand narrative structures and enhance AI interactions with literary content.
 
-### b. Combining Structured and Unstructured Data
-Following the development of the KAG system, we will integrate the context from both textual (unstructured) data and structured data (from the knowledge graph). This combined approach will enable us to build a more robust and comprehensive QA system, capable of leveraging the strengths of both data types to improve accuracy and relevance in responses.
+## 3. KAG (Knowledge Augmented Generation)
 
-This part of the project will be completed by the date of final submission. 
+The KAG combines the knowledge graph with Mistral's 7b-open large language model to provide contextually rich responses to questions about short stories.
+
+### Features
+- **Knowledge Graph Integration**: Uses structured story knowledge to enhance LLM responses
+- **Semantic Vector Retrieval**: Retrieves the most relevant knowledge for each query
+- **Contextual Expansion**: Can expand knowledge nodes to include related story elements
+- **Memory-Efficient Processing**: Handles multiple stories in batches to manage memory usage
+- **Persistent Storage**: Maintains a vector database of processed stories for quick retrieval
+
+### Requirements
+- Python 3.8+
+- Libraries: `pandas`, `networkx`, `tqdm`, `tiktoken`, `python-dotenv`, `mistralai`, `scikit-learn`
+- MistralAI API key (stored in `.env` file as `MISTRAL_API_KEY`)
+
+### Usage
+
+#### Setting up the environment
+```bash
+
+# Install dependencies
+pip install pandas networkx tqdm tiktoken python-dotenv mistralai scikit-learn spacy
+
+# Install spaCy model
+python -m spacy download en_core_web_sm
+
+# Create .env file with your Mistral API key
+echo "MISTRAL_API_KEY=your_api_key_here" > .env
+```
+
+#### Running Instructions
+
+```bash
+# Process stories in a folder and answer questions
+python kag_use.py path/to/stories/folder
+
+# If no folder is provided, it will use a sample story
+python kag_use.py
+```
 

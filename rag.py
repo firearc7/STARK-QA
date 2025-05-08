@@ -713,7 +713,6 @@ def main():
     """Main function to demonstrate the RAG system."""
     # Load the dataset
     print("Loading dataset...")
-    # Using a sample dataset since kagglehub.load_dataset isn't available
     df = pd.DataFrame({
         "text": [
             "Once upon a time, there lived a friendship between a fox and a rabbit. They helped each other through many challenges.",
